@@ -10,7 +10,7 @@ namespace BulkyBook.DataAccess.Repository
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        private readonly ApplicationDbContext _context;
+        private new readonly ApplicationDbContext _context;
 
         public CategoryRepository(ApplicationDbContext context) : base(context)
         {
@@ -23,7 +23,6 @@ namespace BulkyBook.DataAccess.Repository
             if(objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-                _context.SaveChanges();
             }
         }
     }

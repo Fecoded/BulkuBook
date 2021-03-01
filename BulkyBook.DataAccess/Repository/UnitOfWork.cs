@@ -14,6 +14,7 @@ namespace BulkyBook.DataAccess.Repository
         {
             _context = context;
             Category = new CategoryRepository(_context);
+            CoverType = new CoverTypeRepository(_context);
             SP_CAll = new SP_CALL(_context);
         }
 
@@ -21,9 +22,11 @@ namespace BulkyBook.DataAccess.Repository
 
         public ISP_CALL SP_CAll { get; private set; }
 
+        public ICoverTypeRepository CoverType { get; private set; }
+
         public void Dispose() => _context.Dispose();
 
-        public void Save() => _context.SaveChanges();
+        public void Complete() => _context.SaveChanges();
        
     }
 }
